@@ -1,2 +1,10 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1>Your list</h1>
+<%= @list.name %>
+<% @list.bookmarks.each do |bookmark| %>
+<ul>
+<li><%= bookmark.comment %> <%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+
+</ul>
+<% end %>
+<p><%=link_to "Add a bookmark to your list", new_list_bookmark_path(@list)%></p>
+<p><%= link_to "Back to index", lists_path %></p>
