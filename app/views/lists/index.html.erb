@@ -2,9 +2,8 @@
 <h1 class='my-5'>Index of all the lists</h1>
 <div class='container d-flex flex-column'>
 <% @lists.each do |list| %>
-<div class="card-category p-4 m-4 " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <%= link_to list.name, list_path(list)%>
-</div>
+  <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 </div>
 <p ><%= link_to "Create a new list", new_list_path %></p>
